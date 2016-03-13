@@ -1,15 +1,15 @@
 //
-//  LFSliderTests.swift
-//  LFSliderTests
+//  LFSliderExampleTests.swift
+//  LFSliderExampleTests
 //
-//  Created by Lucas Farah on 3/12/16.
+//  Created by Lucas Farah on 3/13/16.
 //  Copyright © 2016 Lucas Farah. All rights reserved.
 //
 
 import XCTest
-@testable import LFSlider
+@testable import LFSliderExample
 
-class LFSliderTests: XCTestCase {
+class LFSliderExampleTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

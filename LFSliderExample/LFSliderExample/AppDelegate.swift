@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  LFSlider
+//  LFSliderExample
 //
-//  Created by Lucas Farah on 3/12/16.
+//  Created by Lucas Farah on 3/13/16.
 //  Copyright © 2016 Lucas Farah. All rights reserved.
 //
 

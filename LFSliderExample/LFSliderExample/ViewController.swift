@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  LFSlider
+//  LFSliderExample
 //
-//  Created by Lucas Farah on 3/12/16.
+//  Created by Lucas Farah on 3/13/16.
 //  Copyright © 2016 Lucas Farah. All rights reserved.
 //
 
@@ -13,16 +13,10 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-
-    let mySlider = LFSlider(width: 100, height: 50)
+    let mySlider = LFSlider(frame: CGRect(x: 100, y: 100, width: 350, height: 50))
     view.addSubview(mySlider)
-    
+    mySlider.color = UIColor.redColor()
     mySlider.setValue(100, duration: 2)
-  }
-
-  func sliderValueChanged(sender:UISlider)
-  {
-    print(sender.value)
   }
 
   override func didReceiveMemoryWarning() {

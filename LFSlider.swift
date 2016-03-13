@@ -15,13 +15,21 @@ class LFSlider: UIView {
 
 	var label: UILabel?
 	var slider: UISlider?
-
-	init(width: CGFloat, height: CGFloat)
+	var color: UIColor?
 	{
-		super.init(frame: CGRect(x: 100, y: 100, width: width, height: height))
+		didSet
+		{
+      self.label?.textColor = self.color
+      self.slider?.thumbTintColor = self.color
+		}
+	}
 
-		self.height = height
-		self.width = width
+  override init(frame:CGRect)
+	{
+		super.init(frame: CGRect(x: 100, y: 100, width: frame.width, height: frame.height))
+
+		self.height = frame.height
+		self.width = frame.width
 
 		self.slider = UISlider(frame: CGRect(x: 0, y: 0, width: self.frame.width * 0.6, height: self.frame.height))
 		self.slider!.maximumValue = 100
@@ -51,6 +59,16 @@ class LFSlider: UIView {
 	}
 }
 
+extension NSTimer
+{
+	public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
+		let fireDate = CFAbsoluteTimeGetCurrent()
+		let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
+		CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
+		return timer
+	}
+}
+
 extension UILabel
 {
 	func setValue(number: Int, duration: Double)
@@ -60,10 +78,10 @@ extension UILabel
 			let timerNumber = currentNumber
 			NSTimer.runThisEvery(seconds: duration / Double(abs(number - timerNumber))) { (timer) -> Void in
 
-        if currentNumber == number
-        {
-          timer.invalidate()
-        }
+				if currentNumber == number
+				{
+					timer.invalidate()
+				}
 				else if currentNumber < number
 				{
 					currentNumber += 1
@@ -71,21 +89,11 @@ extension UILabel
 				}
 				else if currentNumber > number
 				{
-          currentNumber -= 1
-          self.text = "\(currentNumber)%"
+					currentNumber -= 1
+					self.text = "\(currentNumber)%"
 				}
-
 			}
 		}
-	}
-}
-extension NSTimer
-{
-	public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
-		let fireDate = CFAbsoluteTimeGetCurrent()
-		let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
-		CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
-		return timer
 	}
 }
 extension UISlider
