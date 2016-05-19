@@ -1,5 +1,6 @@
 # LFSlider
 UISlider extension with a label value and value change animation
+![ezgif com-video-to-gif 1](https://cloud.githubusercontent.com/assets/6511079/15384669/2986881c-1d51-11e6-9050-7d1a4c398cac.gif)
 
 ## Installation
 
